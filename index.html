@@ -10,7 +10,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.1.min.js"></script>
   <script type="text/javascript" src="script.js"> </script>
-<script type="text/javascript" src="Gallery.js"> </script>
+
 <script>
  //  $('#innerBanner').flickrPhoto({ 
  //     url : 'http://www.flickr.com/photos', 
@@ -31,15 +31,30 @@
     <!-- <input id="linkField" type="text" placeholder="Enter URL">
     <input id="addLink" onclick="addLinkFn()" type="button" value="Add">
    --></div>
+<h1>Gallery</h1>
 
-<div class="banner">
-    <ul id="innerBanner">
-        
-    </ul>
-</div>  
+<ul id="shotsByList"></ul>
+     
 
 </body>
+<script type="text/javascript" src="Gallery.js"> </script>
+ 
+<script>
+    var callback = function (listDetails) {
+        var html = '';
 
+        listDetails.shots.forEach(function (shot) {
+            html += '<li><h3>' + shot.title + '</h3>';
+            html += '<h4>by ' + shot.player.name + '</h4><a href="' + shot.url + '">';
+            html += '<img src="' + shot.image_teaser_url + '" ';
+            html += 'alt="' + shot.title + '"></a></li>';
+        });
+
+        document.getElementById('shotsByList').innerHTML = html;
+    }
+
+    jribbble.getShotsByList('popular', callback, {page: 1, per_page: 50});
+</script>
 
  
 

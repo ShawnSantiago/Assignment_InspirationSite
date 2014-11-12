@@ -55,9 +55,14 @@ img {
 
 }
 
-.banner ul li { 
+ul li { 
+    border: 2px solid rgba(149, 165, 166,0.2);
+    background-color: white;
     display: inline-block;
     max-width: 530px;  
     vertical-align: top;
-    margin: 15px;  
+    height: 300px;
+    width: 200px;
+    margin: 5px;  
+    padding: 15px;
     }
