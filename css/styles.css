@@ -139,6 +139,7 @@ ul li {
 input[type="checkbox"] {
     display:none;
 }
+
 input[type="checkbox"] + label span {
     display:inline-block;
     width:19px;
@@ -149,9 +150,28 @@ input[type="checkbox"] + label span {
     background-size: cover; 
     cursor:pointer;
 }
+
 input[type="checkbox"]:checked + label span {
     background:url(../png/marked.png) center no-repeat;
     background-size: cover; 
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:#eee; 
+    border:1px solid #ccc;
+    cursor:pointer;
+    font-family: 'Open Sans', Tahoma, Verdana, Segoe, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+input[type=submit]:hover {
+
+    background:#7f8c8d; 
+    border:1px solid #ccc;
+    font-family: 'Open Sans', Tahoma, Verdana, Segoe, sans-serif;
+    color: white
 }
 #checkboxSection {
     padding: 10px;
