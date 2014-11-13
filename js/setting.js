@@ -11,41 +11,21 @@ var callback = function (listDetails) {
 
             html += 'alt="' + shot.title + ';"></a>';
             html += '</div>';
-            html += '<div id="checkboxSection">';
-            html += '<input type="checkbox" class="checkbox" id="'+ shot.id +'_1" name="'+ shot.id +'" /><label for="'+ shot.id +'_1"><span></span></label>';
-            html += '<input type="checkbox" class="checkbox" id="'+ shot.id +'_2" name="'+ shot.id +'" /><label for="'+ shot.id +'_2"><span></span></label>';
-            html += '<input type="checkbox" class="checkbox" id="'+ shot.id +'_3" name="'+ shot.id +'" /><label for="'+ shot.id +'_3"><span></span></label>';
-            html += '<input type="checkbox" class="checkbox" id="'+ shot.id +'_4" name="'+ shot.id +'" /><label for="'+ shot.id +'_4"><span></span></label>';
-            html += '<input type="checkbox" class="checkbox" id="'+ shot.id +'_5" name="'+ shot.id +'" /><label for="'+ shot.id +'_5"><span></span></label>';
-            html +='</div>';
-            html += '<input type="text" id="commenttext" placeholder="Leave a comment">';
-            html += '<input type="submit" id="submit" placeholder="submit">';
-            html +='</li>';
+            html += '<fieldset class="rating">'
+            html +=  '<input type="radio"/><label onclick="starClicked(event)" for="star5" id="' + shot.id + '_star5" name="rating" value="5" >5 stars</label>'
+            html +=  '<input type="radio"/><label onclick="starClicked(event)" for="star4" id="' + shot.id + '_star4" name="rating" value="4" >4 stars</label>'
+            html +=  '<input type="radio"/><label onclick="starClicked(event)" for="star3" id="' + shot.id + '_star3" name="rating" value="3" >3 stars</label>'
+            html +=  '<input type="radio"/><label onclick="starClicked(event)" for="star2" id="' + shot.id + '_star2" name="rating" value="2" >2 stars</label>'
+            html +=  '<input type="radio"/><label onclick="starClicked(event)" for="star1" id="' + shot.id + '_star1" name="rating" value="1" >1 star</label>'
+            html +=  '</fieldset>';
+            html +=  '<input type="text" id="comment" name="comment" placeholder="leave a comment" />';
+            html +=  '<input type="submit" id="comment" name="submit" placeholder="submit" />';
         });
 
         document.getElementById('shotsByList').innerHTML = html;
     }
 
     jribbble.getShotsByList('popular', callback, {page: 1, per_page: 50});
-
-// function checkCheckBoxes(){
-//     for (var i = 0; i < 5; i++) {
-//         var checkbox = document.getElementByClassName('checkbox');
-//         var checkboxid = checkbox.name;
-//         
-//     }
-// }
-
-function deleteCheckBox() {
-    var div = document.getElementById('checkboxSection');
-    var child = ul.children;
-    for (var i=0; i < div.length; i++) {
-        if (checkbox.checkbox && checkbox.id == 5 ) {
-
-        }
-    }
-}
-
 
 //Pop Up Options
 

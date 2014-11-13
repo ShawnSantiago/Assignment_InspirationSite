@@ -1,5 +1,5 @@
-//Parse.initialize("RhsH5lnqHXKT5ilYTJfsX8KjaxywiH0eBsFxUf5A", "IG7w17tSbiKz7Xrzt17uf48Q2o8G5kzemBqcZMm1");
-Parse.initialize("LCkrHcQs1MnJzqoVQmZLsyJNOIe2kRNWi4kokTQV", "PyISC5vsA9dSMgK5EfLAZsfD8WjPzvem4yjQxUbu");
+Parse.initialize("YniKUECGSIBgB1p1kQ7jg15zf9TwKYD48V5vl85b", "fFTWHT9CONgd100sJBOYCE7xVcrHEzJ3OHaZmUK1");
+// Parse.initialize("LCkrHcQs1MnJzqoVQmZLsyJNOIe2kRNWi4kokTQV", "PyISC5vsA9dSMgK5EfLAZsfD8WjPzvem4yjQxUbu");
 
 // var LinkObject = Parse.Object.extend("LinkObject");
 // var LinkInstance = new LinkObject();
@@ -75,4 +75,17 @@ function loginFn () {
 		}
 	});
 }
+var StarRating = Parse.Object.extend("StarRatingDB");
+var StarRatingNumber = new StarRating();
+function starClicked(event) {
+	console.log(event.currentTarget.id);
+	StarRatingNumber.save ({"rating": event.currentTarget.id},{
+		success: function(object) {
+		console.log("worked");
+		},
+		error: function(error) {
+		console.log("error code" + error.code);
+		}
+	});
+};	
 
