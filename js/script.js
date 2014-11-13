@@ -36,6 +36,24 @@ Parse.initialize("YniKUECGSIBgB1p1kQ7jg15zf9TwKYD48V5vl85b", "fFTWHT9CONgd100sJB
 // 		}
 // 	});
 // }
+$(window).load(function() {
+var query = new Parse.Query("StarRating");
+query.equalTo("rating", "news");
+	query.find({
+		success: function(results) {
+			console.log(results);
+			for (var i = 0; i <results.length; i++) {
+				var link = results[i];
+				console.log("the url is " + link.get("url"));
+			};
+		},
+		error: function(error) {
+			console.log("No Ratings made");
+		}
+	});
+}
+ alert("window is loaded");
+});
 
 var user = new Parse.User();
 
@@ -78,14 +96,14 @@ function loginFn () {
 var StarRating = Parse.Object.extend("StarRatingDB");
 var StarRatingNumber = new StarRating();
 function starClicked(event) {
-	console.log(event.currentTarget.for);
-	StarRatingNumber.save ({"rating": event.currentTarget.id, "value": event.currentTarget.value, "id": event.currentTarget.name },{
-		success: function(object) {
-		console.log("worked");
-		},
-		error: function(error) {
-		console.log("error code" + error.code);
-		}
-	});
+	console.log(event.currentTarget.name);
+	// StarRatingNumber.save ({"rating": event.currentTarget.id, "value": event.currentTarget.value, "id": event.currentTarget.name },{
+	// 	success: function(object) {
+	// 	console.log("worked");
+	// 	},
+	// 	error: function(error) {
+	// 	console.log("error code" + error.code);
+	// 	}
+	// });
 };	
 
