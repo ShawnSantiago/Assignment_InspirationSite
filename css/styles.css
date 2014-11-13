@@ -1,7 +1,59 @@
 body {
     background: #eee;
-    text-align: center;
+}
+
+.container {
     padding: 0 25px;
+    text-align: center;
+}
+
+#logo {
+    float: left;
+    margin-left: 100px;
+    margin-top: 25px;
+}
+
+h1 {
+    width: 800px;
+    height: 143px;
+    margin: 0 auto;
+    background: url("../images/logo.png") no-repeat;
+    font: 0/0 a;
+}
+
+#form {
+    margin-top: 55px;
+    float: right;
+    margin-right: 100px;
+}
+
+#one {
+    display: none;
+}
+
+#one p {
+    font-size: 14px;
+    color: blue;
+}
+
+#two {
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+    height: 1200px;
+}
+
+#one h2 {
+    font-size: 42px;
+}
+
+h2 {
+    clear: both;
+}
+
+#two h2 {
+    padding-top: 100px;
+    margin-left: 150px;
+    color: #666;
 }
 
 h3 {
