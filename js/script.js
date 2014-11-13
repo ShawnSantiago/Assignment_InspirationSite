@@ -78,8 +78,8 @@ function loginFn () {
 var StarRating = Parse.Object.extend("StarRatingDB");
 var StarRatingNumber = new StarRating();
 function starClicked(event) {
-	console.log(event.currentTarget.id);
-	StarRatingNumber.save ({"rating": event.currentTarget.id},{
+	console.log(event.currentTarget.for);
+	StarRatingNumber.save ({"rating": event.currentTarget.id, "value": event.currentTarget.value, "id": event.currentTarget.name },{
 		success: function(object) {
 		console.log("worked");
 		},
