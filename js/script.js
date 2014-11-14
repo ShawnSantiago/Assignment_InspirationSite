@@ -56,7 +56,7 @@ Parse.initialize("YniKUECGSIBgB1p1kQ7jg15zf9TwKYD48V5vl85b", "fFTWHT9CONgd100sJB
 // });
 
 var user = new Parse.User();
-
+var userCurrent = Parse.User.current();
 function signupFn () {
 	user.set("username", document.getElementById('userNameField').value);
 	user.set("password", document.getElementById('passwordField').value);
@@ -81,12 +81,13 @@ function loginFn () {
 	user.set("password", document.getElementById('passwordField').value);
 	user.logIn({
 		success:function(user) {
+			
 			console.log("worked")
 			document.getElementById("one").style.display = 'block';
 			document.getElementById("two").style.display = 'none';
 		},
 		error:function(user, error) {
-			console.log("error code" + error.code);	
+			console.log("error code " + error.code);	
 			if (error.code == 101) {
 				alert("User account doesn't exist. Create new account first.")
 			};
@@ -95,17 +96,19 @@ function loginFn () {
 }
 var StarRating = Parse.Object.extend("StarRatingDB");
 var StarRatingNumber = new StarRating();
-function starClicked(event) {
+
+function starClicked(event,userCurrent) {
+	console.log(userCurrent)
 	console.log(event.currentTarget.innerHTML);
-	StarRatingNumber.save({
-		"rating": event.currentTarget.id, 
-		"value" : event.currentTarget.innerHTML
-	},{
-		success: function(object) {
+	StarRatingNumber.set("id", event.currentTarget.id);
+	StarRatingNumber.set("value", event.currentTarget.innerHTML);
+	StarRatingNumber.set("user", userCurrent);
+	StarRatingNumber.save(null,{
+		success: function(StarRatingNumber) {
 		console.log("worked");
 		},
 		error: function(error) {
-		console.log("error code" + error.code);
+		console.log("error code " + error.code);
 		}
 	});
 };	
